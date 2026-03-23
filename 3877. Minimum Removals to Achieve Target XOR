@@ -1,0 +1,18 @@
+class Solution {
+    public int minRemovals(int[] nums,int target) {
+        int n=nums.length;
+        java.util.HashMap<Integer,Integer> dp=new java.util.HashMap<>();
+        dp.put(0,0);
+        for(int num:nums){
+            java.util.HashMap<Integer,Integer> next=new java.util.HashMap<>(dp);
+            for(int x:dp.keySet()){
+                int nx=x^num;
+                next.put(nx,Math.max(next.getOrDefault(nx,0),dp.get(x)+1));
+            }
+            dp=next;
+        }
+        if(!dp.containsKey(target))
+            return -1;
+        return n-dp.get(target);
+    }
+}
