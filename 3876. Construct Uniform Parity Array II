@@ -1,0 +1,21 @@
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        int n=nums1.length;
+        int odd=0,even=0;
+        for(int i=0;i<n;i++){
+            if(nums1[i]%2==1)
+                odd++;
+            else
+                even++;
+        }
+        if(odd==0||even==0)
+            return true;
+        else{
+            java.util.Arrays.sort(nums1);
+            if(nums1[0]%2==1)
+                return true;
+            else
+                return false;
+        }
+    }
+}
