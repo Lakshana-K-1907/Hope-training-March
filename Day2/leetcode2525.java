@@ -1,3 +1,4 @@
+//2525. Categorize Box According to Criteria
 class Solution {
     public String categorizeBox(int length, int width, int height, int mass) {
         
